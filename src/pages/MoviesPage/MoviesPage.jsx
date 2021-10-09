@@ -4,6 +4,7 @@ import api from "../../api/api";
 import CardsMovies from "../../components/CardsMovies/CardsMovies";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import Spinner from "../../components/Spinner/Spinner";
+import MoviesPageStyled from "./MoviesPageStyled";
 
 const MoviesPage = () => {
   const [loading, setLoading] = useState(false);
@@ -14,16 +15,20 @@ const MoviesPage = () => {
   async function fetchData(query) {
     setLoading(true);
     const res = await api.searchMoviesByQuery(query);
+    console.log("res :>> ", res);
     setMovies(res);
     setLoading(false);
   }
 
   return (
-    <div>
-      <Searchbar fetchData={fetchData} />
+    <MoviesPageStyled>
+      <div className="formWrapper">
+        <Searchbar fetchData={fetchData} />
+      </div>
+
       <CardsMovies movies={movies} location={location} url={url} />
       {loading ?? <Spinner />}
-    </div>
+    </MoviesPageStyled>
   );
 };
 

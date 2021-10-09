@@ -25,6 +25,7 @@ const CardMoviesStyled = styled.ul`
   .cardImg {
     width: 100%;
     object-fit: cover;
+    height: 311px;
   }
   .movieTitle {
     display: block;

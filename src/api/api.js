@@ -39,8 +39,7 @@ const getMovieCast = async (movieId) => {
     const res = await axios.get(
       `/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
     );
-    // console.log("res.data :>> ", res.data);
-    return res.data;
+    return res.data.cast;
   } catch (error) {
     throw new Error(error);
   }
@@ -51,7 +50,6 @@ const getMovieReviews = async (movieId) => {
     const res = await axios.get(
       `/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
     );
-    console.log("res.data :>> ", res.data.results);
     return res.data.results;
   } catch (error) {
     throw new Error(error);

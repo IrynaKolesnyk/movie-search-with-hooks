@@ -1,9 +1,9 @@
 import { useState } from "react";
+import SearchbarStyled from "./SearchbarStyled";
 
 const Searchbar = ({ fetchData }) => {
   const [query, setQuery] = useState("");
   const handleChange = (event) => {
-    console.log("event.target :>> ", event.target.value);
     setQuery(event.target.value);
   };
 
@@ -13,7 +13,7 @@ const Searchbar = ({ fetchData }) => {
     setQuery("");
   };
   return (
-    <form className="SearchForm" onSubmit={handleSubmit}>
+    <SearchbarStyled className="SearchForm" onSubmit={handleSubmit}>
       <button type="submit" className="SearchForm-button">
         <span className="SearchForm-button-label">Search</span>
       </button>
@@ -26,7 +26,7 @@ const Searchbar = ({ fetchData }) => {
         autoFocus
         placeholder="Search movies"
       />
-    </form>
+    </SearchbarStyled>
   );
 };
 

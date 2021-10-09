@@ -24,6 +24,9 @@ const CastStyled = styled.div`
       transform: scale(1.03);
     }
   }
+  .castImg {
+    height: 311px;
+  }
   .castTitle {
     margin-top: 20px;
   }
